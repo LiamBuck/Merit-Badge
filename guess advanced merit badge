@@ -1,0 +1,53 @@
+// Guess Advanced Merit Badge
+// By Liam Buck
+var games = 0;
+var totalTurns = 0;
+var again = true;
+while (again == true && guess != "q") {
+	games++;
+	var guess = 0;
+	var turns = 0;
+	var answer = Math.floor(Math.random()*100)+1
+	while (guess != answer && guess != "q") {
+    guess=prompt("Guess my number from 1-100");
+	if (guess == "q") {
+		alert ("You quit.")
+	}
+	else if (validator(guess)==true) {
+		turns++;
+		if (guess<answer) alert("Too low");
+		else if (guess>answer) alert("Too High");	
+	}
+	else alert("Invalid Guess. Retry!");
+}
+if (guess == answer) {
+	gameStats(turns, totalTurns);
+	again = newGame();
+}
+}
+else alert("Invalid guess, please try agian!");
+
+function validator(guess){
+	if (guess = "q" || guess > 0 && guess < 100) {
+		return true
+	}
+	else return false
+}
+
+function gameStats(turns, totalTurns){
+	alert("You got it in "+turns+" turns!");
+	totalTurns += turns;
+	var averageTurns = totalTurns / games;
+	alert("You won "+games+" games with an average of "+averageTurns+" turns per game!");
+}
+	
+function newGame(){
+	var again = prompt("Play again? y = yes.");
+	if (again == "y") {
+		return true;
+	}
+	else {
+		alert("Sorry to see you go!");
+		return false;
+	}
+}
