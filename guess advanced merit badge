@@ -25,7 +25,7 @@ if (guess == answer) {
 	again = newGame();
 }
 }
-else alert("Invalid guess, please try agian");
+else if alert("Invalid guess, please try agian");
 
 function validator(guess){
 	if (guess = "q" || guess > 0 && guess < 100) {
